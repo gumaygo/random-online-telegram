@@ -1,11 +1,16 @@
 import random
 import time
-from telethon import TelegramClient
+import os
+from dotenv import load_dotenv
+from telethon import TelegramClient, functions
 
-# Masukkan API ID, API Hash, dan nomor telepon Telegram Anda
-api_id = 'YOUR_API_ID'
-api_hash = 'YOUR_API_HASH'
-phone = 'YOUR_PHONE_NUMBER'
+# Load environment variables from .env file
+load_dotenv()
+
+# Get API_ID, API_HASH, and PHONE_NUMBER from the .env file
+api_id = os.getenv('API_ID')
+api_hash = os.getenv('API_HASH')
+phone = os.getenv('PHONE_NUMBER')
 
 # Buat instance TelegramClient
 client = TelegramClient('session_name', api_id, api_hash)
